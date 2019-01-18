@@ -5,4 +5,10 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
+	<!-- tiles--> 
+	<bean class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+    	<property name="viewClass" value="org.springframework.web.servlet.view.tiles2.TilesView" />
+    	<property name="order" value="2" />
+	</bean>	
+		
 </beans>
