@@ -8,6 +8,7 @@
 	<!-- tiles 정의부 -->
 	<definition name ="layout" template ="/WEB-INF/tiles/layout/layout.jsp">
 		<put-attribute name="header" value ="/WEB-INF/tiles/tile/header.jsp"/>
+		<put-attribute name="sidebar" value ="/WEB-INF/tiles/tile/sidebar.jsp"/>
 		<put-attribute name="content" value =""/>
 		<put-attribute name="footer" value ="/WEB-INF/tiles/tile/footer.jsp"/>		
 	</definition>
