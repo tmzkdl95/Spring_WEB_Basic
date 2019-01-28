@@ -31,8 +31,12 @@
 	</div>
 	<div id ="wrapper">	
 			<tiles:insertAttribute name="sidebar" />
-			<tiles:insertAttribute name="content" />
-	</div>
+			<!-- <div class="content-wrapper"> -->			
+				<tiles:insertAttribute name="content" />
+				<tiles:insertAttribute name="footer" />			
+			<!-- </div><!-- content-wrapper -->				
+	</div><!-- wrapper -->
+			<tiles:insertAttribute name="footer-menu" />
 
 </body>
 </html>

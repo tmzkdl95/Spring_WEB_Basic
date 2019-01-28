@@ -48,9 +48,7 @@
 						</c:forEach>
 					</tbody>
 				</table>
-			</div>
-		</div>
-	</div>
-
-
-</div>
+			</div> <!--table-responsive  -->	
+		</div><!-- card-body -->
+	</div><!-- card mb-3 -->
+</div><!-- container-fluid -->
