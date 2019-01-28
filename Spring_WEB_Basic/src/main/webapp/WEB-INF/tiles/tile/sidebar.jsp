@@ -1,15 +1,16 @@
+<%@ page pageEncoding="utf-8" session="false"%>
 <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item">
           <a class="nav-link" href="index.html">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Dashboard</span>
+            <span>게시판</span>
           </a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-fw fa-folder"></i>
-            <span>Pages</span>
+            <span>데이터 확인</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Login Screens:</h6>
@@ -25,11 +26,11 @@
         <li class="nav-item active">
           <a class="nav-link" href="charts.html">
             <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a>
+            <span>차트 분석</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="tables.html">
+          <a class="nav-link" href="testPage">
             <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a>
+            <span>테스트 페이지</span></a>
         </li>
       </ul>
