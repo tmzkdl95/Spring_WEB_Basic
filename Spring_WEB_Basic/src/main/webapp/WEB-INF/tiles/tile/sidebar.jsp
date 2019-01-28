@@ -23,8 +23,9 @@
             <a class="dropdown-item" href="blank.html">Blank Page</a>
           </div>
         </li>
-        <li class="nav-item active">
-          <a class="nav-link" href="charts.html">
+        <!-- <li class="nav-item active"> remove active 20190-01-29 by Dan-->
+        <li class="nav-item">
+          <a class="nav-link" href="#">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>차트 분석</span></a>
         </li>
