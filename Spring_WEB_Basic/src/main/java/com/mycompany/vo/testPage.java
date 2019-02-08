@@ -23,7 +23,7 @@ public class testPage {
 	public String getContent() {
 		return content;
 	}
-	public void setContext(String content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 	

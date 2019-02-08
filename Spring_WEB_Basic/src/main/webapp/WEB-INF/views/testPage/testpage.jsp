@@ -28,7 +28,16 @@
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
-
+				<p>
+				<div class="insertData">					
+					<form action='<c:url value="/testPage/insert_data" />' method="post" id="insert_data">
+						User_name : <input name="user_name" type="text" size="10"id="user_name">
+						content : <input name="content"type="text" size="10" id="content">
+						<!-- name은 VO에서 구분자 //id는 html내의 구분자 -->
+						<button type="submit">저장</button>
+					</form>
+				</div>
+				<p>
 				<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 					<thead>
 						<tr>
@@ -37,18 +46,20 @@
 							<th>content</th>
 						</tr>
 					</thead>
-						
+
 					<tbody>
 						<c:forEach items="${testpage}" var="testpage">
-											<tr>
-												<td>${testpage.id}</td>
-												<td>${testpage.user_name}</td>
-												<td>${testpage.content}</td>												
-											</tr>
+							<tr>
+								<td>${testpage.id}</td>
+								<td>${testpage.user_name}</td>
+								<td>${testpage.content}</td>
+							</tr>
 						</c:forEach>
 					</tbody>
 				</table>
-			</div> <!--table-responsive  -->	
-		</div><!-- card-body -->
+			</div>
+			<!--table-responsive  -->
+		</div>
+		<!-- card-body -->
 	</div><!-- card mb-3 -->
 </div><!-- container-fluid -->
