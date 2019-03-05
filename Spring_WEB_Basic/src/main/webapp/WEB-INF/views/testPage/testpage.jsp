@@ -24,7 +24,7 @@
 	<!-- DataTables Example -->
 	<div class="card mb-3">
 		<div class="card-header">
-			<i class="fas fa-table"></i> testPage-data
+			<i class="fas fa-table"></i> testPage-data -2019-03-05
 		</div>
 		<div class="card-body">
 			<div class="table-responsive">
