@@ -27,6 +27,7 @@
     
      <!-- MyBatis-Spring -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    	<!-- Spring 실행 동시에 mybatis-config.xml 파일이 동작해서 DB에 연결하게 된다.  -->
         <property name="configLocation" value="classpath:mybatis-config.xml" />
         <property name="dataSource" ref="dataSource" />
     </bean>
