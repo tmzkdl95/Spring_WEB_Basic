@@ -47,7 +47,7 @@
 		</init-param>
 	</filter>
 	<filter-mapping>
-		<filter-name>encofingFilter</filter-name>
+		<filter-name>encodingFilter</filter-name>
 		<url-pattern>/*</url-pattern>
 	</filter-mapping>
 
