@@ -1,4 +1,4 @@
-package com.mycompany.mapper;
+package com.mycompany.mapper.mapper_interface;
 
 import java.util.List;
 

@@ -32,9 +32,10 @@
         <property name="dataSource" ref="dataSource" />
     </bean>
     
+    
     <!-- Mapper -->
     <bean id="testPageMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
-    	<property name="mapperInterface" value="com.mycompany.mapper.testPageMapper" />
+    	<property name="mapperInterface" value="com.mycompany.mapper.mapper_interface.testPageMapper" />
     	<property name="sqlSessionFactory" ref="sqlSessionFactory" />
 	</bean>
     
