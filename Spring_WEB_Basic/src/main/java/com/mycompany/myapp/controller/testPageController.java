@@ -17,10 +17,7 @@ import com.mycompany.vo.testPage;
 
 @Controller
 public class testPageController {
-	/*
-	@Autowired
-	private testPageMapper testpagemapper;
-	*/
+
 	@Inject
 	private testPage_Service testPage_service;
 	
@@ -37,8 +34,8 @@ public class testPageController {
 	@RequestMapping(value = "/testPage/insert_data", method = RequestMethod.POST)
 	public String insert_data(@ModelAttribute testPage testpage){
 		
-		System.out.print(testpage.toString()); //view에서 제대로 값 던져주는지 확인하기		
-		//testpagemapper.insert_data(testpage);  //mapper로 값을 더져주어서 DB로 insert 될 수 있또록 작성
+		System.out.print(testpage.toString()); //view에서 제대로 값 던져주는지 확인하기	
+		testPage_service.insert_data(testpage);
 		return "redirect:/testPage";
 	}
 	

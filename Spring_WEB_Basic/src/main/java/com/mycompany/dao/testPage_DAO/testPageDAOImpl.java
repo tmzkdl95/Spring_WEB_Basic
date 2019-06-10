@@ -23,5 +23,11 @@ public class testPageDAOImpl implements testPageDAO{
 		System.out.println("testPageDAO 실행");
 		return sqlsession.selectList(NameSpace+".select_testPage");
 	}
+	
+	@Override
+	public void insert_testPage(testPage testpage) {
+		//insert에는 return값이 없다.
+		sqlsession.insert(NameSpace+".insert_testPage",testpage);
+	}
 
 }
