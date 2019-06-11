@@ -11,6 +11,8 @@
 	<div>
 		 ID : <input name="id" type="text" size="10"id="user_name">
 		 Password : <input name="passwd" type="text"size="10" id="content">
+		 
+		 <a href="memberJoin">회원가입</a>
 	</div>
 </body>
 </html>
