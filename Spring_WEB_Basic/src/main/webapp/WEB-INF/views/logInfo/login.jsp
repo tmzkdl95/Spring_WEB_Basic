@@ -9,8 +9,25 @@
 <body>
 
 	<div>
-		 ID : <input name="id" type="text" size="10"id="user_name">
-		 Password : <input name="passwd" type="text"size="10" id="content">
+	<form action="${ loginProcessingUrl }" method="post">
+    <div class="form-group form-group-lg">
+        <div class="form-group">
+            <label>사용자명</label>
+            <input type="text" name="username" class="form-control" placeholder="아이디">
+        </div>
+        <div class="form-group">
+            <label>비밀번호</label>
+            <input type="password" name="password" class="form-control" placeholder="비밀번호">
+        </div>
+        <div class="form-group">
+            <input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }" >
+        </div>
+        <div class="form-action">
+            <sec:csrfInput />
+            <input type="submit" class="btn btn-primary btn-lg" value="로그인">
+        </div>
+    </div>
+	</form>
 		 
 		 <a href="memberJoin">회원가입</a>
 	</div>
