@@ -9,15 +9,15 @@
 <body>
 
 	<div>
-	<form action="${ loginProcessingUrl }" method="post">
+	<form action="login" method="post">
     <div class="form-group form-group-lg">
         <div class="form-group">
             <label>사용자명</label>
-            <input type="text" name="username" class="form-control" placeholder="아이디">
+            <input type="text" name="username" id = "user_id" class="form-control" placeholder="아이디">
         </div>
         <div class="form-group">
             <label>비밀번호</label>
-            <input type="password" name="password" class="form-control" placeholder="비밀번호">
+            <input type="password" name="password" id = "user_pw" class="form-control" placeholder="비밀번호">
         </div>
         <div class="form-group">
             <input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }" >

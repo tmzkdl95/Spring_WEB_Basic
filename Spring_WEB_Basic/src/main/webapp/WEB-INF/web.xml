@@ -36,10 +36,17 @@
 	</servlet-mapping>
 	
 	<!-- Spring Security -->
+	<!-- 다중 브라우져 접속 방지 -->
+	<listener>
+		<listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class> 
+	</listener>
+
+	<!-- 모든 요청은 DelegatingFilterProxy를 거침 그래서 이것을 통해 스프링시큐리티 인증 인가 수행 -->
 	<filter>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
 	</filter>
+	
 	<filter-mapping>
 		<filter-name>springSecurityFilterChain</filter-name>
 		<url-pattern>/*</url-pattern>

@@ -5,7 +5,7 @@
   
 <mapper namespace = "com.mycompany.mapper.mapper_XML">
 	<select id = "select_userInfo" resultType="com.mycompany.vo.loginVO">
-		select user_id,user_pw from userinfo where user_id=#{user_id} AND user_pw=#{user_pw}
+		select * from userinfo where user_id=#{user_id}
 	</select>
 	
 	<insert id="insert_memberJoin" >

@@ -33,6 +33,9 @@
 					<form action='<c:url value="/testPage/insert_data" />' method="post" id="insert_data">
 						User_name : <input name="user_name" type="text" size="10"id="user_name">
 						content : <input name="content"type="text" size="10" id="content">
+						<div class="form-group">
+            				<input type="hidden" name="${ _csrf.parameterName }" value="${ _csrf.token }" >
+        				</div>	
 						<!-- name은 VO에서 구분자 //id는 html내의 구분자 -->
 						<button type="submit">저장</button>
 					</form>
