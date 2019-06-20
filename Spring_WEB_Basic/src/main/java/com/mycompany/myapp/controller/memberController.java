@@ -15,6 +15,8 @@ import com.mycompany.service.memberService.member_Service;
 import com.mycompany.vo.loginVO;
 import com.mycompany.vo.testPage;
 
+
+//회원 관리 컨트롤러 로그아웃 / 회원가입
 @Controller
 public class memberController {
 	
@@ -29,8 +31,6 @@ public class memberController {
 	//로그인 페이지 입장 defualt = get 방식
 	@RequestMapping(value = "/login")
 	public String loginpage(){
-		
-		
 		return "logInfo/login";
 	}
 	
@@ -58,6 +58,13 @@ public class memberController {
 		
 		ms.memberRegisterService(loginvo);
 		return "redirect:/login";
+	}
+	
+	//로그아웃 메서드
+	@RequestMapping(value = "/logout", method = RequestMethod.POST)
+	public String logout(){
+		System.out.println("로그아웃 페이지 입장");		
+		return "logInfo/login";
 	}
 
 }

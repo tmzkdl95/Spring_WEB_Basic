@@ -7,7 +7,7 @@
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="">Spring WEB Project</a>
+      <a class="navbar-brand mr-1" href="/myapp">Spring WEB Project</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -63,7 +63,12 @@
             <a class="dropdown-item" href="#">Settings</a>
             <a class="dropdown-item" href="#">Activity Log</a>
             <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+            <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>  -->
+            <a class="dropdown-item" href="#" onclick="document.getElementById('logout-form').submit();" data-toggle="modal">Logout</a>
+            <form action="logout" method="POST" id="logout-form">
+            	<input name="${_csrf.parameterName}" type="hidden" value="${_csrf.token}" />
+            </form>
+			
           </div>
         </li>
       </ul>

@@ -32,7 +32,7 @@
 			username-parameter="username" password-parameter="password"
 			authentication-failure-url="/login?error" always-use-default-target='true' />
 		<sec:logout invalidate-session="true" logout-url="/logout"
-			logout-success-url="/login?logout" />
+			logout-success-url="/" />
 		<!-- enable csrf protection -->
 		<sec:csrf/>
 		
