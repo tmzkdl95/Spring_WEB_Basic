@@ -1,7 +1,6 @@
 package com.mycompany.myapp.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
+import java.security.Principal;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -23,16 +22,20 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
+	public String home(Locale locale, Model model, Principal principal) {
 		logger.info("Welcome home! The client locale is {}.", locale);
+		String userName = "";
 		
-		Date date = new Date();
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-		
-		String formattedDate = dateFormat.format(date);
-		
-		model.addAttribute("serverTime", formattedDate );
-		
+		try{
+			userName = principal.getName();
+		}catch(NullPointerException e){
+			userName = "사용자 정보가 없습니다.";
+			//e.printStackTrace();
+		}finally{
+			System.out.println("userName >>>>" + userName);
+		//	System.out.println("principal >>>>>>>>>>>>>"+principal);
+			model.addAttribute("userName",userName);
+		}
 		return "/home";
 	}
 	
