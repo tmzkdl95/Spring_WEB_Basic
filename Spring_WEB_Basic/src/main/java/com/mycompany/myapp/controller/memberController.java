@@ -55,14 +55,7 @@ public class memberController {
 	public String memberJoinRegister(@ModelAttribute loginVO loginvo){
 		//bcrypt 암호화
 		loginvo.setUser_pw(BCrypt.hashpw(loginvo.getPassword(), BCrypt.gensalt(10)));		
-		System.out.println("비밀번호 암호화 이후 정보 >>>>>>>>>>>"+loginvo.toString());
 		
-		//암호화 정보 비교
-		if(bcrypt.matches("1234", loginvo.getPassword())){
-			System.out.println("비밀번호가 일치합니다.");
-		}else{
-			System.out.println("비밀번호가 일치하지 않습니다.");
-		}
 		ms.memberRegisterService(loginvo);
 		return "redirect:/login";
 	}

@@ -8,10 +8,10 @@ import com.mycompany.vo.loginVO;
 public interface loginDAO {
 	
 	//로그인 확인
-	public List<loginVO> memberConfirm(String user_id);
+	public loginVO memberConfirm(String user_id)throws SQLException;
 	
 	//회원가입
-	public void memberRegisterDAO(loginVO loginvo);
+	public void memberRegisterDAO(loginVO loginvo) throws SQLException;
 
 
 }

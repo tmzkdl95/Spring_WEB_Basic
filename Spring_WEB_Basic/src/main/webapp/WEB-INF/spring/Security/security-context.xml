@@ -21,11 +21,11 @@
 		<sec:intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
 
 		<!-- 모든유저 -->
-		<!--<sec:intercept-url pattern="/testPage/testPage"
-			access="hasRole('ROLE_USER')" /> -->
+		<sec:intercept-url pattern="/testPage/testPage" access="hasRole('ROLE_USER')" />
+		<sec:intercept-url pattern="/testPage/**" access="isAuthenticated()" />
 		<sec:intercept-url pattern="/login" access="permitAll" />
 		<!-- <sec:intercept-url pattern="/memberJoin" access="permitAll" />  -->
-		<!-- <sec:intercept-url pattern="/testPage/**" access="isAuthenticated()" /> -->
+		
 
 		<sec:form-login login-page="/login"
 			login-processing-url="/login" default-target-url="/"
@@ -47,15 +47,24 @@
 
 	<bean id="bcryptPasswordEncoder"
 		class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder" />
- 
+	
+	<!-- UserServiceDetail을 사용하지 않고 인증하는 방식 (SpringSecurity 기초) -->
+	<!-- 인증을 위해서는 3개의 데이터가 필요. id/pw/enabled(계정활성화 여부) -->
+	 
 	<sec:authentication-manager>
-		<sec:authentication-provider>
-		<!-- <sec:jdbc-user-service data-source-ref="dataSource"/> -->
+		<sec:authentication-provider>  
+			 <sec:password-encoder ref="bcryptPasswordEncoder" />
 		 	 <sec:jdbc-user-service data-source-ref="dataSource"
-				users-by-username-query="SELECT user_id, user_pw FROM userinfo WHERE user_id = ?"
+				users-by-username-query="SELECT user_id, user_pw, enabled FROM userinfo WHERE user_id = ?"
 				authorities-by-username-query="SELECT user_id, user_role FROM userinfo WHERE user_id = ?" />
-		
+		</sec:authentication-provider>
+	</sec:authentication-manager> 
+ 	<!--
+	<sec:authentication-manager>
+		 <sec:authentication-provider user-service-ref="member_Service"> 
 		</sec:authentication-provider>
 	</sec:authentication-manager>
-	
+	 -->
+	<!-- UserServiceDetail을 원하는대로 사용하고 싶다면 bean 객체를 생성 해주어야 함 아님 에러 발생 -->
+	<bean id ="member_Service" class="com.mycompany.service.memberService.member_Service" />	
 </beans>

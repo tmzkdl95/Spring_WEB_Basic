@@ -9,6 +9,6 @@
 	</select>
 	
 	<insert id="insert_memberJoin" >
-		insert into userinfo (user_id, user_pw, user_mail) values(#{user_id}, #{user_pw}, #{user_mail})
+		insert into userinfo (user_id, user_pw, user_mail, enabled) values(#{user_id}, #{user_pw}, #{user_mail}, true)
 	</insert>
 </mapper>

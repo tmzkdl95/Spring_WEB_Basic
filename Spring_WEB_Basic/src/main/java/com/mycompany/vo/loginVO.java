@@ -12,8 +12,9 @@ public class loginVO implements UserDetails{
 	String user_id;
 	String user_pw;
 	String user_mail;
-	String user_authority;
+	String user_authority="ROLE_USER";
 	
+
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		 	ArrayList<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
@@ -77,10 +78,17 @@ public class loginVO implements UserDetails{
 	public void setUser_mail(String user_mail) {
 		this.user_mail = user_mail;
 	}
-	
-	
+	public String getUser_authority() {
+		return user_authority;
+	}
+	public void setUser_authority(String user_authority) {
+		this.user_authority = user_authority;
+	}
+
 	@Override
 	public String toString() {
-		return "loginVO [user_id=" + user_id + ", user_pw=" + user_pw + ", user_mail=" + user_mail + "]";
+		return "loginVO [user_id=" + user_id + ", user_pw=" + user_pw + ", user_mail=" + user_mail + ", user_authority="
+				+ user_authority + "]";
 	}
+	
 }
