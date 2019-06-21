@@ -20,14 +20,20 @@ public class member_Service implements UserDetailsService {
 	@Autowired
 	private loginDAO logindao;
 	//회원 가입 기능
-	public void memberRegisterService(loginVO loginvo){
+	public boolean memberRegisterService(loginVO loginvo){
 		System.out.println("memberRegisterService 실행");
-		try {
-			logindao.memberRegisterDAO(loginvo);
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
+		try{
+			//id 중복이 없을 경우
+			if(logindao.idCheckDAO(loginvo.getUser_id()).equals("null")){
+				System.out.println("중복 아님");
+				logindao.memberRegisterDAO(loginvo);
+				return true;
+			}
+		}catch(Exception e){
 			e.printStackTrace();
 		}
+		
+		return false;
 	}
 
 	@Override

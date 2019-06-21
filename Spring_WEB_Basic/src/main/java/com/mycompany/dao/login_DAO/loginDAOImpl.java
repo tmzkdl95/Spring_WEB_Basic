@@ -26,11 +26,30 @@ public class loginDAOImpl implements loginDAO{
 		return sqlsession.selectOne(NameSpace+".select_userInfo",user_id);
 	}
 	
-	//회원 가입
+	//회원 가입 - 회원 등록
 	@Override
 	public void memberRegisterDAO(loginVO login) throws SQLException{
 		//insert에는 return값이 없다.
-		sqlsession.insert(NameSpace+".insert_memberJoin",login);
+		try{
+			sqlsession.insert(NameSpace+".insert_memberJoin",login);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
+
+	//회원 가입 - id 중복 체크
+	@Override
+	public String idCheckDAO(String user_id) throws SQLException {
+		loginVO idCheck = sqlsession.selectOne(NameSpace+".idCheck",user_id);
+		System.out.println("idCheck >>>>>>>>>>>"+idCheck);
+		if(idCheck == null){
+			return "null";
+		}
+		else{
+			return idCheck.getUser_id();
+		}
+	}
+	
+	
 
 }

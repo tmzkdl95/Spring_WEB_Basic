@@ -34,7 +34,7 @@ public class memberController {
 		return "logInfo/login";
 	}
 	
-	//로그인 동작
+	//로그인 동작 UserDetail 오류로 현재 동작 안되는 Method
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String member_login(@ModelAttribute loginVO loginvo){
 		System.out.println("member_login 동작 시작");
@@ -43,28 +43,38 @@ public class memberController {
 		return "/";
 	}
 	
-	//회원가입 페이지 입장
+	//회원가입 - 페이지 입장
 	@RequestMapping(value = "/memberJoin")
 	public String member_Join(){
 		System.out.println("회원가입 페이지 입장");		
 		return "logInfo/memberJoin";
 	}
 	
-	//회원 등록 메서드
+	//회원가입 - 회원 등록 메서드
 	@RequestMapping(value = "/memberJoin/register", method = RequestMethod.POST)
 	public String memberJoinRegister(@ModelAttribute loginVO loginvo){
-		//bcrypt 암호화
+		//회원 비밀번호 bcrypt 암호화
 		loginvo.setUser_pw(BCrypt.hashpw(loginvo.getPassword(), BCrypt.gensalt(10)));		
 		
-		ms.memberRegisterService(loginvo);
-		return "redirect:/login";
+		//정상동작
+		if(ms.memberRegisterService(loginvo)){
+			System.out.println("회원 가입 완료");
+			return "redirect:/login";
+		}
+		else{
+			System.out.println("로그인 실패-아이디 중복");
+			return "redirect:/memberJoin";
+		}
 	}
 	
-	//로그아웃 메서드
+	
+	
+	//로그아웃 메서드 작성할 필요 없음
+	/*
 	@RequestMapping(value = "/logout", method = RequestMethod.POST)
 	public String logout(){
 		System.out.println("로그아웃 페이지 입장");		
 		return "logInfo/login";
-	}
+	}*/
 
 }
